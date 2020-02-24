@@ -37,12 +37,10 @@ public class PlayerViewTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // iTween実行中はロック
         if (coolTime >= 0)
         {
             coolTime += Time.deltaTime;
-            //if (coolTime > MovingTime)
-            //    coolTime = -1;
-
             return;
         }
 
@@ -59,6 +57,7 @@ public class PlayerViewTracker : MonoBehaviour
         var angleU = Vector3.Angle(Vector3.forward,
             toTargetLocalVec.z * Vector3.forward + toTargetLocalVec.x * Vector3.right);
         angleU *= (toTargetLocalVec.x >= 0) ? 1 : -1;
+
         var angleV = Vector3.Angle(Vector3.forward,
             toTargetLocalVec.z * Vector3.forward + toTargetLocalVec.y * Vector3.up);
         angleV *= (toTargetLocalVec.y >= 0) ? 1 : -1;
@@ -74,6 +73,7 @@ public class PlayerViewTracker : MonoBehaviour
             targetAngleU = maxAngleU - SetAngleOffset;
         else if (angleU < -(maxAngleU - SetAngleOffset))
             targetAngleU = SetAngleOffset - maxAngleU;
+
         float targetAngleV = angleV;
         if (angleV > maxAngleV - SetAngleOffset)
             targetAngleV = maxAngleV - SetAngleOffset;
