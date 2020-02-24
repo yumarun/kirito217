@@ -136,7 +136,7 @@ public class OVRPlayerController : MonoBehaviour
 	protected OVRCameraRig CameraRig = null;
 
 	private float MoveScale = 1.0f;
-	private Vector3 MoveThrottle = Vector3.zero;
+	protected Vector3 MoveThrottle = Vector3.zero;
 	private float FallSpeed = 0.0f;
 	private OVRPose? InitialPose;
 	public float InitialYRotation { get; private set; }
@@ -146,7 +146,7 @@ public class OVRPlayerController : MonoBehaviour
 	private bool HaltUpdateMovement = false;
 	private bool prevHatLeft = false;
 	private bool prevHatRight = false;
-	private float SimulationRate = 60f;
+	protected float SimulationRate = 60f;
 	private float buttonRotation = 0f;
 	private bool ReadyToSnapTurn; // Set to true when a snap turn has occurred, code requires one frame of centered thumbstick to enable another snap turn.
 	private bool playerControllerEnabled = false;

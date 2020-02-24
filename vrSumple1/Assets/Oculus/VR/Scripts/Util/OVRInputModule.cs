@@ -475,7 +475,7 @@ namespace UnityEngine.EventSystems
             }
 
             ProcessMouseEvent(GetGazePointerData());
-#if !UNITY_ANDROID
+#if !UNITY_ANDROID || UNITY_EDITOR
             ProcessMouseEvent(GetCanvasPointerData());
 #endif
         }
