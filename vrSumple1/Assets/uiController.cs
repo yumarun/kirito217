@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class beatCounter : MonoBehaviour
+public class uiController : MonoBehaviour
 {
-    public int beatCount = 0;
+    public bool OnGameStartButton = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +14,6 @@ public class beatCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(beatCount);
+        
     }
 }

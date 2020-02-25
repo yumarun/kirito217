@@ -11,6 +11,8 @@ public class magicBallController : MonoBehaviour
     GameObject button1;
     GameObject BeatCounter;
 
+    float AlwaysTimeKeeper = 0;
+
     void Start()
     {
         button1 = GameObject.Find("b1");
@@ -21,8 +23,8 @@ public class magicBallController : MonoBehaviour
     void Update()
     {
         // 開始と同時に時間計測スタート
-        
 
+        AlwaysTimeKeeper += Time.deltaTime;
         
         
         if (button1.GetComponent<button1>().canmove)
@@ -37,7 +39,7 @@ public class magicBallController : MonoBehaviour
             CanMagicMove = true;
         }
 
-        if (CanMagicMove)
+        if (CanMagicMove && AlwaysTimeKeeper >= 9)
         {
             transform.Translate(speed, 0, 0);
         }
