@@ -13,8 +13,7 @@ public class magicBallController : MonoBehaviour
 
     void Start()
     {
-        button1 = GameObject.Find("b1");
-        BeatCounter = GameObject.Find("BeatCounter");
+        
     }
 
     
@@ -25,28 +24,20 @@ public class magicBallController : MonoBehaviour
 
         
         
-        if (button1.GetComponent<button1>().canmove)
-        {
-            timeKeeper += Time.deltaTime;
-            //CanMagicMove = true;
-        }
+        
 
-        // 一定時間たったら魔法を動かすのを許可
-        if (timeKeeper >= startTime)
-        {
-            CanMagicMove = true;
-        }
-
-        if (CanMagicMove)
-        {
-            transform.Translate(speed, 0, 0);
-        }
+        
+       
+        transform.Translate(speed, 0, 0);
+        
 
         
 
         // 魔法が遠くへ行き過ぎたら魔法を壊す
-        if (transform.position.x <= -100)
+        if (transform.position.x >= 25 )
         {
+            ScoreManager mng = FindObjectOfType<ScoreManager>();
+            mng.UnHitCount++ ;
             Destroy(gameObject);
         }
 
@@ -62,7 +53,8 @@ public class magicBallController : MonoBehaviour
         // 剣と当たったら魔法を壊す
         if (other.tag == "sword")
         {
-            BeatCounter.GetComponent<beatCounter>().beatCount++;
+            ScoreManager mng = FindObjectOfType<ScoreManager>();
+            mng.HitCount++ ;
             Destroy(gameObject);
         }
     }
