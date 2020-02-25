@@ -16,6 +16,8 @@ public class ScoreManager : MonoBehaviour
                 return;
             
             hitCount = value;
+
+            onHitCountChanged();
             onSpawnCountChanged();
             
         }
@@ -48,7 +50,12 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    private void onHitCountChanged()
+    {
+        // TODO: ヒットカウントが更新されるたびに呼ばれる。だからテキスト変更処理を追加。
     }
 
     private void onSpawnCountChanged()
@@ -63,6 +70,10 @@ public class ScoreManager : MonoBehaviour
         ArrowController.StopSpawnRoutine();
         HitCount = 0;
         UnHitCount = 0;
+        
+        // TODO: UIの更新
+
+
         Debug.Log("Game logic has ended.");
     }
 }

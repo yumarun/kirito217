@@ -7,6 +7,8 @@ public class makeMagicArrowController : MonoBehaviour
     [SerializeField]
     private ScoreManager scoreManager;
     [SerializeField]
+    private StartCounter startCouter;
+    [SerializeField]
     private float StartingDelayTime = 3.0f;
     [SerializeField]
     private float SpawnSpan = 1.0f;
@@ -33,7 +35,7 @@ public class makeMagicArrowController : MonoBehaviour
             yield return new WaitForSeconds(SpawnSpan);
         }
     }
-    public void OnClickStartButton()
+    public void OnStartButtonSelected()
     {
         if (IsActive)
         {
@@ -42,11 +44,10 @@ public class makeMagicArrowController : MonoBehaviour
 
         IsActive = true;
         StartCoroutine(spawnRoutine());
+     
     }
     public void StopSpawnRoutine()
     {
         IsActive = false;
-
-        // TODO: UIの更新
     }
 }
