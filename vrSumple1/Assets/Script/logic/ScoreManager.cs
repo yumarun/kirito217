@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreManager : SingleInstance<ScoreManager>
 {
     public makeMagicArrowController ArrowController;
+    public GameObject CountedScoreText;
+
 
     private int hitCount;
     public int HitCount
@@ -55,7 +58,8 @@ public class ScoreManager : MonoBehaviour
 
     private void onHitCountChanged()
     {
-        // TODO: ヒットカウントが更新されるたびに呼ばれる。だからテキスト変更処理を追加。
+        
+        CountedScoreText.GetComponent<Text>().text = "COUNT: " + HitCount.ToString();
     }
 
     private void onSpawnCountChanged()
@@ -68,12 +72,17 @@ public class ScoreManager : MonoBehaviour
     public void StopGameLogic()
     {
         ArrowController.StopSpawnRoutine();
-        HitCount = 0;
-        UnHitCount = 0;
+        //HitCount = 0;
+        //UnHitCount = 0;
         
         // TODO: UIの更新
 
 
         Debug.Log("Game logic has ended.");
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
     }
 }

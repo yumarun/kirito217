@@ -44,8 +44,7 @@ public class magicBallController : MonoBehaviour
         // 剣と当たったら魔法を壊す
         if (other.tag == "sword")
         {
-            ScoreManager mng = FindObjectOfType<ScoreManager>();
-            mng.HitCount++ ;
+            ScoreManager.Instance.HitCount++;
             Destroy(gameObject);
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TrackingUICntroller : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class TrackingUICntroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        
     }
 
     // Update is called once per frame
@@ -28,6 +29,12 @@ public class TrackingUICntroller : MonoBehaviour
     {
         starcounter.StartCount();
         makemagiccontroller.OnStartButtonSelected();
+        sender.SetActive(false);
+    }
+
+    public void OnRestartButtonClicked(GameObject sender)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         sender.SetActive(false);
     }
 
