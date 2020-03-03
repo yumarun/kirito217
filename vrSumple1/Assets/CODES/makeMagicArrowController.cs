@@ -28,7 +28,7 @@ public class makeMagicArrowController : MonoBehaviour
         while(IsActive)
         {
             GameObject arrow = Instantiate(MagicArrowPrefab) as GameObject;
-            arrow.transform.position = new Vector3(-44, Random.Range(4.0f, 5.0f), Random.Range(-4.0f, 0));
+            arrow.transform.position = new Vector3(-44, Random.Range(4.0f, 5.0f), Random.Range(-3.0f, 0));
             SpawnedCount++ ;
             if (SpawnedCount >= scoreManager.MaxSpawnNumber)
                 break;
