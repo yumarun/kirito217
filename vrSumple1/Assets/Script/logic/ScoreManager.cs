@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //ゲームが終了したときBGMを止める
+//ゲームクリア時BGM流す
 
 public class ScoreManager : SingleInstance<ScoreManager>
 {
     public makeMagicArrowController ArrowController;
     public GameObject CountedScoreText;
     public GameObject StartCountertext;
+    public AudioClip gameClearBGM;
 
 
     private int hitCount;
@@ -70,6 +72,10 @@ public class ScoreManager : SingleInstance<ScoreManager>
         if (HitCount + UnHitCount >= MaxSpawnNumber)
         {
             StopGameLogic();
+            if (MaxSpawnNumber == hitCount)
+            {
+                GetComponent<AudioSource>().PlayOneShot(gameClearBGM);
+            }
         }
     }
     public void StopGameLogic()

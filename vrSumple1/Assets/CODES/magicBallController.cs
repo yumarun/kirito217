@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//魔法弾生成時のSE
+
 public class magicBallController : MonoBehaviour
 {
     float speed = 0.25f; // 魔法の飛んでいくスピード
     float stayTime = 3.0f; // 
     float timeKeeper = 0.0f; // 時間計測
     public bool CanMagicMove = false; // 魔法が飛んでいくことができるか
+    public AudioClip MagicApperBGM;
 
     void Start()
     {
-        
+        //Debug.Log("出現");
+        StartCoroutine(PlayMagicApperBGM());
     }
 
     
@@ -47,6 +51,18 @@ public class magicBallController : MonoBehaviour
             ScoreManager.Instance.HitCount++;
             Destroy(gameObject);
         }
+    }
+
+    void PlayeApperBGM()
+    {
+        GetComponent<AudioSource>().PlayOneShot(MagicApperBGM);
+
+    }
+
+    private IEnumerator PlayMagicApperBGM()
+    {
+        yield return new WaitForSeconds(1.0f);
+        PlayeApperBGM();
     }
 
 }
