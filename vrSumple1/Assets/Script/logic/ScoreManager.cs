@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//ゲームが終了したときBGMを止める
+
 public class ScoreManager : SingleInstance<ScoreManager>
 {
     public makeMagicArrowController ArrowController;
     public GameObject CountedScoreText;
+    public GameObject StartCountertext;
 
 
     private int hitCount;
@@ -74,10 +77,10 @@ public class ScoreManager : SingleInstance<ScoreManager>
         ArrowController.StopSpawnRoutine();
         //HitCount = 0;
         //UnHitCount = 0;
-        
+
         // TODO: UIの更新
 
-
+        StartCountertext.GetComponent<AudioSource>().Stop();
         Debug.Log("Game logic has ended.");
     }
 
