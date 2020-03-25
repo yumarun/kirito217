@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //魔法弾生成時のSE
+//魔法弾の挙動関連はここ
 
 public class magicBallController : MonoBehaviour
 {
-    float speed = 0.25f; // 魔法の飛んでいくスピード
-    float stayTime = 3.0f; // 
+    float speed = 20.0f; // 魔法の飛んでいくスピード
+    float stayTime = 2.0f; // 
     float timeKeeper = 0.0f; // 時間計測
     public bool CanMagicMove = false; // 魔法が飛んでいくことができるか
     public AudioClip MagicApperBGM;
+    GameObject player;
 
     void Start()
     {
         //Debug.Log("出現");
         StartCoroutine(PlayMagicApperBGM());
+        player = GameObject.Find("OVRPlayerController");
     }
 
     
@@ -26,10 +29,12 @@ public class magicBallController : MonoBehaviour
         if (timeKeeper >= stayTime)
         {
 
-            transform.Translate(speed, 0, 0);
+            //transform.Translate(speed, 0, 0);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.transform.position.x, player.transform.position.y + 1.0f, player.transform.position.z) , speed * Time.deltaTime);
+
         }
         // 魔法が遠くへ行き過ぎたら魔法を壊す
-        if (transform.position.x >= 25 )
+        if (transform.position.x >= 25 || transform.position.y <= 2)
         {
             ScoreManager mng = FindObjectOfType<ScoreManager>();
             mng.UnHitCount++ ;
@@ -61,7 +66,7 @@ public class magicBallController : MonoBehaviour
 
     private IEnumerator PlayMagicApperBGM()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.1f);
         PlayeApperBGM();
     }
 

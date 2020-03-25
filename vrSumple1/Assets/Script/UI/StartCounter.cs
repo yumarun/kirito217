@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//OVRPlayerControllerの子のStartCountTextに入ってる
+//スタートボタン押した直後の動作はここで定義
+
+
 public class StartCounter : MonoBehaviour
 {
     // Start is called before the first frame update
     Text thistext;
     public AudioClip SoundButtleBGM;
     //GameObject tmp;
+    public GameObject EnemyList;
 
     void Start()
     {
@@ -30,6 +35,8 @@ public class StartCounter : MonoBehaviour
         StartCoroutine(StartBGM());
 
         StartCoroutine(StartCountRoutine());
+
+        StartCoroutine(IsActiveEnemy());
     }
 
     private IEnumerator StartCountRoutine()
@@ -49,6 +56,13 @@ public class StartCounter : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);
         GetComponent<AudioSource>().PlayOneShot(SoundButtleBGM);
+    }
+
+    private IEnumerator IsActiveEnemy()
+    {
+        yield return new WaitForSeconds(3.0f);
+        EnemyList.SetActive(true);
+
     }
 
 

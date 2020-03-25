@@ -13,6 +13,7 @@ public class makeMagicArrowController : MonoBehaviour
     [SerializeField]
     private float SpawnSpan = 1.0f;
     public GameObject MagicArrowPrefab;
+    
    
     public bool IsActive{get; private set;} = false;
     public int SpawnedCount = 0;
@@ -28,7 +29,7 @@ public class makeMagicArrowController : MonoBehaviour
         while(IsActive)
         {
             GameObject arrow = Instantiate(MagicArrowPrefab) as GameObject;
-            arrow.transform.position = new Vector3(-44, Random.Range(4.0f, 5.0f), Random.Range(-3.0f, 0));
+            arrow.transform.position = new Vector3(-15, Random.Range(5.3f, 6.0f), Random.Range(-3.0f, 0));
             SpawnedCount++ ;
             if (SpawnedCount >= scoreManager.MaxSpawnNumber)
                 break;
