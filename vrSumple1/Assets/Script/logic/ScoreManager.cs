@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 //ゲームが終了したときBGMを止める
 //ゲームクリア時BGM流す
+//当たったボールの数の管理はここ
 
 public class ScoreManager : SingleInstance<ScoreManager>
 {

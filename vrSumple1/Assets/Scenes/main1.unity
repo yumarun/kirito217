@@ -1188,7 +1188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444607123}
   m_LocalRotation: {x: -0, y: -0, z: -0.3396902, w: 0.94053745}
-  m_LocalPosition: {x: -56.366837, y: 2.7610807, z: -1.82}
+  m_LocalPosition: {x: -61.5, y: 5.1, z: -1.82}
   m_LocalScale: {x: 1, y: 1, z: 2.481254}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1206,6 +1206,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1244309249}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &543757635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1244309249}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &543757640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543757635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579cc57a8de013c4c9f0751c08f60e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreM: {fileID: 1925447033}
 --- !u!4 &573021469 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4883985664657356, guid: f933c455b886ad644b60dc415ab31bb3,
@@ -1892,6 +1911,22 @@ PrefabInstance:
     - target: {fileID: 2015248, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: near clip plane
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462408, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493974, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 14300000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 20131489337305086, guid: ce816f2e6abb0504092c23ed9b970dfd,
         type: 3}
