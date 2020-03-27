@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 //ゲームが終了したときBGMを止める
 //ゲームクリア時BGM流す
@@ -76,6 +77,8 @@ public class ScoreManager : SingleInstance<ScoreManager>
             if (MaxSpawnNumber == hitCount)
             {
                 GetComponent<AudioSource>().PlayOneShot(gameClearBGM);
+                StartCoroutine(LoadfinishScene());
+                
             }
         }
     }
@@ -94,5 +97,11 @@ public class ScoreManager : SingleInstance<ScoreManager>
     protected override void OnDestroy()
     {
         base.OnDestroy();
+    }
+
+    private IEnumerator LoadfinishScene()
+    {
+        yield return new WaitForSeconds(3.7f);
+        SceneManager.LoadScene("finish");
     }
 }

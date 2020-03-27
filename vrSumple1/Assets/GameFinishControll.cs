@@ -20,7 +20,7 @@ public class GameFinishControll : MonoBehaviour
         
         if (scoreManager.HitCount == scoreManager.MaxSpawnNumber)
         {
-            FinishText.GetComponent<Text>().text = "Game Clear!";
+            FinishText.GetComponent<Text>().text = "Game Clear! 動画が流れます!";
             ReloadButton.SetActive(true);
         }
         else if (scoreManager.HitCount + scoreManager.UnHitCount >= scoreManager.MaxSpawnNumber)
