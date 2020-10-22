@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class magicBallController : MonoBehaviour
 {
-    float speed = 0.25f; // 魔法の飛んでいくスピード
+    float speed = 0.5f; // 魔法の飛んでいくスピード
     float stayTime = 3.0f; // 
     float timeKeeper = 0.0f; // 時間計測
     public bool CanMagicMove = false; // 魔法が飛んでいくことができるか

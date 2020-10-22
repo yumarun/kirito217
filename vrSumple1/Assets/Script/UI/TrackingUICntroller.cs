@@ -37,5 +37,10 @@ public class TrackingUICntroller : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         sender.SetActive(false);
     }
+    public void OnGoStartSceneButtonClicked(GameObject sender)
+    {
+        SceneManager.LoadScene("start");
+        sender.SetActive(false);
+    }
 
 }

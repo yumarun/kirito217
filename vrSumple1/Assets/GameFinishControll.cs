@@ -7,6 +7,7 @@ public class GameFinishControll : MonoBehaviour
 {
     public GameObject FinishText;
     public GameObject ReloadButton;
+    public GameObject GoStartSceneButton;
     public ScoreManager scoreManager;
     // Start is called before the first frame update
     void Start()
@@ -22,11 +23,13 @@ public class GameFinishControll : MonoBehaviour
         {
             FinishText.GetComponent<Text>().text = "Game Clear!";
             ReloadButton.SetActive(true);
+            GoStartSceneButton.SetActive(true);
         }
         else if (scoreManager.HitCount + scoreManager.UnHitCount >= scoreManager.MaxSpawnNumber)
         {
             FinishText.GetComponent<Text>().text = "Game Over...";
             ReloadButton.SetActive(true);
+            GoStartSceneButton.SetActive(true);
         }
     }
 }
